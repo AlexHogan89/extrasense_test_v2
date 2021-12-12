@@ -4,8 +4,8 @@ class Route
 	static function start()
 	{
 		// контроллер и действие по умолчанию
-		$controller_name = 'Main';
-		$action_name = 'index'; // экшен по умолчанию
+		$controller_name = 'start_page';
+		$action_name = 'run'; // экшен по умолчанию
 		$problems = 0;
 		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
@@ -61,11 +61,11 @@ class Route
 		    
 		// выводим ошибку если не понравился request    
 		if(!$problems == 0){
-		    include "application/controllers/controller_404.php";
+		    include "application/controllers/controller_404_page.php";
 		    
-		    $controller_name = 'Controller_404';
+		    $controller_name = 'Controller_404_page';
 		    $controller = new $controller_name;
-		    $action = 'action_index';
+		    $action = 'action_run';
 		    $controller->$action();
 		}
 	
